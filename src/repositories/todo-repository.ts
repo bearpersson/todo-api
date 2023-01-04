@@ -1,4 +1,5 @@
-import { State } from 'src/state';
+import { State } from '../state';
+import { uid } from '../utils';
 
 export class TodoRepository {
     constructor(private state: State) {}
@@ -11,7 +12,7 @@ export class TodoRepository {
         const todo: Models.Todo = {
             text,
             completed: false,
-            id: new Date().getMilliseconds().toString(),
+            id: uid(),
         };
 
         this.state.todos.push(todo);
